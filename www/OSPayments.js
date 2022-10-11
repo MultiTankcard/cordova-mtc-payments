@@ -11,3 +11,7 @@ exports.checkWalletSetup = function(success, error) {
 exports.setDetails = function(paymentDetails, success, error) {
     exec(success, error, 'OSPayments', 'setDetails', [paymentDetails]);
 }
+
+exports.suppressApplePay = function(success, error) {
+    exec(success, error, 'PassKitHelper', 'suppressApplePay');
+}

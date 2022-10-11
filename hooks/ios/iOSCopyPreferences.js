@@ -104,6 +104,7 @@ module.exports = function (context) {
     var debugEntitlements = plist.parse(debugEntitlementsFile);
 
     debugEntitlements['com.apple.developer.in-app-payments'] = [merchant_id];
+	debugEntitlements['com.apple.developer.passkit.pass-presentation-suppression'] = true;
 
     fs.writeFileSync(debugEntitlementsPath, plist.build(debugEntitlements, { indent: '\t' }));
 
@@ -112,6 +113,7 @@ module.exports = function (context) {
     var releaseEntitlements = plist.parse(releaseEntitlementsFile);
 
     releaseEntitlements['com.apple.developer.in-app-payments'] = [merchant_id];
+	releaseEntitlements['com.apple.developer.passkit.pass-presentation-suppression'] = true;
 
     fs.writeFileSync(releaseEntitlementsPath, plist.build(releaseEntitlements, { indent: '\t' }));
 };
